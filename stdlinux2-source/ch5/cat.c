@@ -20,20 +20,6 @@ int main(int argc, char **argv) {
         do_cat(argv[i]);
     }
 
-    // この方式でファイル名を取得すると、ファイルのメタ情報が出てくるので正しくない。
-    // 呼び出し->インクリメント->評価 のサイクルを繰り返す
-    // while (*argv) {
-    //     do_cat(*argv++);
-    // }
-
-    // この書き方だとコアダンプする。
-    // 呼び出し->評価->インクリメント のサイクルを繰り返すから？
-    // よくよく考えたら、なんかおかしい。
-    // puts('\0'); はコアダンプしてしまう。
-    // while (*argv++) {
-    //     puts(*argv);
-    // }
-
     exit(EXIT_SUCCESS);
 }
 
@@ -54,7 +40,6 @@ void do_cat(char *path) {
             break;
         }
 
-        // ssize_t fd_w = write(STDOUT_FILENO, buf, read_size);
         if (write(STDOUT_FILENO, buf, read_size) < 0) {
             die(path);
         }
