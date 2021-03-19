@@ -59,7 +59,7 @@ DESCRIPTION
 - fopen
 
 ## Description
-- perror (man perror)
+- perror (man 3 perror)
 
 ```bash
 NAME
@@ -72,6 +72,12 @@ SYNOPSIS
 
 DESCRIPTION
        The perror() function produces a message on standard error describing the last error encountered during a call to a system or library function.
+
+       First  (if s is not NULL and *s is not a null byte ('\0')), the argument string s is printed, followed by a colon and a blank.  Then an error message correspond‐
+       ing to the current value of errno and a new-line.
+
+       When a system call fails, it usually returns -1 and sets the variable errno to a value describing what went wrong.  (These values can  be  found  in  <errno.h>.)
+       Many  library  functions  do likewise.  The function perror() serves to translate this error code into human-readable form.
 ```
 - open (man 2 open)
 
@@ -155,4 +161,51 @@ DESCRIPTION
 
 RETURN VALUE
        close() returns zero on success.  On error, -1 is returned, and errno is set appropriately.
+```
+
+## その他のシステムコール
+
+- lseek
+- dup
+- dup2
+- ioctl
+- fcntl
+
+- lseek (man 2 lseek)
+
+```bash
+DESCRIPTION
+       lseek()  repositions the file offset of the open file description associated with the file descriptor fd to the argument offset according to the directive whence
+       as follows:
+
+       SEEK_SET
+              The file offset is set to offset bytes.
+
+       SEEK_CUR
+              The file offset is set to its current location plus offset bytes.
+
+       SEEK_END
+              The file offset is set to the size of the file plus offset bytes.
+```
+
+- dup, dup2 (man 2 dup)
+
+```bash
+DESCRIPTION
+       The dup() system call creates a copy of the file descriptor oldfd, using the lowest-numbered unused file descriptor for the new descriptor.
+```
+
+- ioctl (man 2 ioctl)
+
+```bash
+DESCRIPTION
+       The  ioctl() system call manipulates the underlying device parameters of special files.  In particular, many operating characteristics of character special files
+       (e.g., terminals) may be controlled with ioctl() requests.  The argument fd must be an open file descriptor.
+```
+
+- fcntl (man 2 fcntl)
+
+```bash
+DESCRIPTION
+       fcntl() performs one of the operations described below on the open file descriptor fd.  The operation is determined by cmd.
 ```
