@@ -209,3 +209,85 @@ DESCRIPTION
 DESCRIPTION
        fcntl() performs one of the operations described below on the open file descriptor fd.  The operation is determined by cmd.
 ```
+
+- fopen
+- fclose
+- fgetc (man 3 fgetc)
+- putchar (man 3 putchar)
+
+- fgetc (システムコールの read の役割に該当)
+
+```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int fgetc(FILE *stream);
+
+DESCRIPTION
+       fgetc() reads the next character from stream and returns it as an unsigned char cast to an int, or EOF on end of file or error.
+
+RETURN VALUE
+       fgetc(), getc() and getchar() return the character read as an unsigned char cast to an int or EOF on end of file or error.
+```
+
+- putchar (システムコールの write の役割を果たす
+)
+- puts は標準出力に書き込む関数からも put** の関数のタイプが推測できる。
+
+```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int fputc(int c, FILE *stream);
+
+       int fputs(const char *s, FILE *stream);
+
+       int putc(int c, FILE *stream);
+
+       int putchar(int c);
+
+DESCRIPTION
+       fputc() writes the character c, cast to an unsigned char, to stream.
+
+       fputs() writes the string s to stream, without its terminating null byte ('\0').
+
+       putc() is equivalent to fputc() except that it may be implemented as a macro which evaluates stream more than once.
+
+       putchar(c) is equivalent to putc(c, stdout).
+
+RETURN VALUE
+       fputc(), putc() and putchar() return the character written as an unsigned char cast to an int or EOF on error.
+```
+
+- fopen (システムコールの open の役割を果たす)
+
+```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       FILE *fopen(const char *pathname, const char *mode);
+
+DESCRIPTION
+       The fopen() function opens the file whose name is the string pointed to by pathname and associates a stream with it.
+
+RETURN VALUE
+       Upon successful completion fopen(), fdopen() and freopen() return a FILE pointer.  Otherwise, NULL is returned and errno is set to indicate the error.
+```
+
+- fclose (システムコールの close の役割を果たす)
+
+```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int fclose(FILE *stream);
+
+DESCRIPTION
+       The fclose() function flushes the stream pointed to by stream (writing any buffered output data using fflush(3)) and closes the underlying file descriptor.
+
+       The behaviour of fclose() is undefined if the stream parameter is an illegal pointer, or is a descriptor already passed to a previous invocation of fclose().
+
+RETURN VALUE
+       Upon  successful  completion,  0  is returned.  Otherwise, EOF is returned and errno is set to indicate the error.  In either case, any further access (including
+       another call to fclose()) to the stream results in undefined behavior.
+```
