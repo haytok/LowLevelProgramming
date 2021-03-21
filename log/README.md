@@ -17,5 +17,7 @@
 - `fprintf`
 - `fgetc`
 - `putchar`
+- `strcmp`
+  - 文字列比較
 
 - `strstr`
