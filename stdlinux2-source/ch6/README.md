@@ -36,22 +36,24 @@
 - [ ] ftell
 - [ ] rewind
 
-- fseeko (関連 ftello)
-- ftello
+- [ ] fseeko (関連 ftello)
+- [ ] ftello
 
 
 ### ファイルディスクリプタと FILE 型
-- fileno
 - [ ] fdopen (関連 fopen)
+
+- [ ] fileno (関連 clearerr, feof, ferror)
 
 ### バッファリングの操作
 - [ ] fflush (関連 fclose)
-- setvbuf
+
+- [ ] setvbuf
 
 ### EOF とエラー
-- feof
-- ferror
-- clearerr
+- [ ] clearerr
+- [ ] feof
+- [ ] ferror
 
 ### man を読んでいく
 
@@ -411,49 +413,147 @@ RETURN VALUE
 - fseeko
 
 ```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int fseeko(FILE *stream, off_t offset, int whence);
+
+DESCRIPTION
+       The  fseeko()  and  ftello()  functions  are identical to fseek(3) and ftell(3) (see fseek(3)), respectively, except that the offset argument of fseeko() and the
+       return value of ftello() is of type off_t instead of long.
+
+       On some architectures, both off_t and long are 32-bit types, but defining _FILE_OFFSET_BITS with the value 64 (before including any header files) will turn off_t
+       into a 64-bit type.
+
+RETURN VALUE
+       On successful completion, fseeko() returns 0, while ftello() returns the current offset.  Otherwise, -1 is returned and errno is set to indicate the error.
 ```
 
 - ftello
 
 ```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       off_t ftello(FILE *stream);
+
+DESCRIPTION
+       The  fseeko()  and  ftello()  functions  are identical to fseek(3) and ftell(3) (see fseek(3)), respectively, except that the offset argument of fseeko() and the
+       return value of ftello() is of type off_t instead of long.
+
+       On some architectures, both off_t and long are 32-bit types, but defining _FILE_OFFSET_BITS with the value 64 (before including any header files) will turn off_t
+       into a 64-bit type.
+
+RETURN VALUE
+       On successful completion, fseeko() returns 0, while ftello() returns the current offset.  Otherwise, -1 is returned and errno is set to indicate the error.
 ```
 
-- 
+- fileno
 
 ```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int fileno(FILE *stream);
+
+DESCRIPTION
+       The function fileno() examines the argument stream and returns its integer file descriptor.
+
+ERRORS
+       These  functions should not fail and do not set the external variable errno.  (However, in case fileno() detects that its argument is not a valid stream, it must
+       return -1 and set errno to EBADF.)
 ```
 
-- 
+- clearerr
 
 ```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       void clearerr(FILE *stream);
+
+DESCRIPTION
+       The function clearerr() clears the end-of-file and error indicators for the stream pointed to by stream.
+
+ERRORS
+       These  functions should not fail and do not set the external variable errno.  (However, in case fileno() detects that its argument is not a valid stream, it must
+       return -1 and set errno to EBADF.)
 ```
 
-- 
+- feof
 
 ```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int feof(FILE *stream);
+
+DESCRIPTION
+       The  function  feof()  tests  the  end-of-file  indicator  for the stream pointed to by stream, returning nonzero if it is set.  The end-of-file indicator can be
+       cleared only by the function clearerr().
+
+ERRORS
+       These  functions should not fail and do not set the external variable errno.  (However, in case fileno() detects that its argument is not a valid stream, it must
+       return -1 and set errno to EBADF.)
 ```
 
-- 
+- ferror
 
 ```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int ferror(FILE *stream);
+
+DESCRIPTION
+       The function ferror() tests the error indicator for the stream pointed to by stream, returning nonzero if it is set.  The error indicator can be  reset  only  by
+       the clearerr() function.
+
+ERRORS
+       These  functions should not fail and do not set the external variable errno.  (However, in case fileno() detects that its argument is not a valid stream, it must
+       return -1 and set errno to EBADF.)
 ```
 
-- 
+- setvbuf
 
 ```bash
-```
+SYNOPSIS
+       #include <stdio.h>
 
-- 
+       int setvbuf(FILE *stream, char *buf, int mode, size_t size);
 
-```bash
-```
+DESCRIPTION
+       The three types of buffering available are unbuffered, block buffered, and line buffered.  When an output stream is unbuffered, information appears on the desti‐
+       nation file or terminal as soon as written; when it is block buffered many characters are saved up and written as a block; when it is  line  buffered  characters
+       are  saved  up until a newline is output or input is read from any stream attached to a terminal device (typically stdin).  The function fflush(3) may be used to
+       force the block out early.  (See fclose(3).)
 
-- 
+       Normally all files are block buffered.  If a stream refers to a terminal (as stdout normally does), it is line buffered.  The standard  error  stream  stderr  is
+       always unbuffered by default.
 
-```bash
-```
+       The setvbuf() function may be used on any open stream to change its buffer.  The mode argument must be one of the following three macros:
 
-- 
+              _IONBF unbuffered
 
-```bash
+              _IOLBF line buffered
+
+              _IOFBF fully buffered
+
+       Except  for unbuffered files, the buf argument should point to a buffer at least size bytes long; this buffer will be used instead of the current buffer.  If the
+       argument buf is NULL, only the mode is affected; a new buffer will be allocated on the next read or write operation.  The setvbuf() function  may  be  used  only
+       after opening a stream and before any other operations have been performed on it.
+
+       The other three calls are, in effect, simply aliases for calls to setvbuf().  The setbuf() function is exactly equivalent to the call
+
+           setvbuf(stream, buf, buf ? _IOFBF : _IONBF, BUFSIZ);
+
+       The  setbuffer()  function  is  the  same,  except that the size of the buffer is up to the caller, rather than being determined by the default BUFSIZ.  The set‐
+       linebuf() function is exactly equivalent to the call:
+
+           setvbuf(stream, NULL, _IOLBF, 0);
+
+RETURN VALUE
+       The function setvbuf() returns 0 on success.  It returns nonzero on failure (mode is invalid or the request cannot be honored).  It may set errno on failure.
+
+       The other functions do not return a value.
 ```
