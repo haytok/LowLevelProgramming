@@ -3,11 +3,11 @@
 ## この章で取り扱うライブラリ関数
 
 ### stdio
-- [ ] fopen
-- [ ] fclose
+- [] fopen
+- [] fclose
 
 ### バイト単位の入出力
-- [ ] fgetc
+- [] fgetc
 - [ ] fputc
 - [ ] getc
 - [ ] putc
