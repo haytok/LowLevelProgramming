@@ -70,3 +70,15 @@ DESCRIPTION
 - frame
 - list
 - print
+
+## 練習問題
+### 7.4.1
+- `gcc -Wall -o mytail mytail.c && ./mytail mytail.c -n5`
+
+```bash
+void die(char *string) {
+    perror(string);
+    exit(EXIT_FAILURE);
+}
+
+```
