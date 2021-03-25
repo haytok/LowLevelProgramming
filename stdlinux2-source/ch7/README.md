@@ -63,3 +63,10 @@ DESCRIPTION
 - head コマンドの作成
 - オプションの追加
 - gdb を使って仕込んだバグの発見と修正
+
+### gdb の解説で使用されていたコマンド集
+- run
+- backtrace
+- frame
+- list
+- print
