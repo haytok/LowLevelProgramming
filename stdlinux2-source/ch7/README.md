@@ -82,3 +82,25 @@ void die(char *string) {
 }
 
 ```
+
+- 解説
+- こないだの Yahoo のコーディングテストの本を読む本の選択に関する問題と似ている。
+- tail コマンドを実装する際のポイントはリングバッファのデータ構造でプログラムを実装することだった。
+
+```text
+このコードではリングバッファ（ring buffer）というデータ構造を使っています。 リングバッファは実体としては固定長のバッファなのですが、 末尾まで到達したら最初に戻ってデータを上書きするところが異なります。
+
+tailコマンドの場合、ファイルを読み込みながら常にそのときの末尾10行だけがあれば十分なわけです。 言い換えると、11行目を読んだら1行目は不要になるはずです。 そこで11行目は1行目を書いたところに上書きしてしまえばいいだろうという発想が出てきます。 リングバッファはまさにそのような処理をするためのデータ構造です。 
+```
+
+```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       char *fgets(char *s, int size, FILE *stream);
+
+fgets() reads in at most one less than size characters from stream and stores them into the buffer pointed to by s.  Reading stops after an EOF or a newline.  If a newline is read, it is stored into the buffer.  A terminating null byte ('\0') is stored after the last character in the buffer.
+```
+
+### 7.4.2
+- ``
