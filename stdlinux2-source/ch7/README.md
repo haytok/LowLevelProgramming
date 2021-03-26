@@ -73,6 +73,9 @@ DESCRIPTION
 
 ## 練習問題
 ### 7.4.1
+- これまでの問題を参考に実装すれば問題ない。
+
+### 7.4.2
 - `gcc -Wall -o mytail mytail.c && ./mytail mytail.c -n5`
 
 ```bash
@@ -101,6 +104,3 @@ SYNOPSIS
 
 fgets() reads in at most one less than size characters from stream and stores them into the buffer pointed to by s.  Reading stops after an EOF or a newline.  If a newline is read, it is stored into the buffer.  A terminating null byte ('\0') is stored after the last character in the buffer.
 ```
-
-### 7.4.2
-- ``
