@@ -142,6 +142,18 @@ RETURN VALUE
 - link (2)
 
 ```bash
+SYNOPSIS
+       #include <unistd.h>
+
+       int link(const char *oldpath, const char *newpath);
+
+DESCRIPTION
+       link() creates a new link (also known as a hard link) to an existing file.
+
+       If newpath exists, it will not be overwritten.
+
+RETURN VALUE
+       On success, zero is returned.  On error, -1 is returned, and errno is set appropriately.
 ```
 
 - symlink (2)
