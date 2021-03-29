@@ -159,21 +159,65 @@ RETURN VALUE
 - symlink (2)
 
 ```bash
+SYNOPSIS
+       #include <unistd.h>
+
+       int symlink(const char *target, const char *linkpath);
+
+DESCRIPTION
+       symlink() creates a symbolic link named linkpath which contains the string target.
+
+RETURN VALUE
+       On success, zero is returned.  On error, -1 is returned, and errno is set appropriately.
 ```
 
 - readlink (2)
 
 ```bash
+SYNOPSIS
+       #include <unistd.h>
+
+       ssize_t readlink(const char *pathname, char *buf, size_t bufsiz);
+
+DESCRIPTION
+       readlink()  places  the contents of the symbolic link pathname in the buffer buf, which has size bufsiz.  readlink() does not append a null byte to buf.  It will
+       (silently) truncate the contents (to a length of bufsiz characters), in case the buffer is too small to hold all of the contents.
+
+RETURN VALUE
+       On  success,  these  calls  return the number of bytes placed in buf.  (If the returned value equals bufsiz, then truncation may have occurred.)  On error, -1 is
+       returned and errno is set to indicate the error.
 ```
 
 - unlink (2)
 
 ```bash
+SYNOPSIS
+       #include <unistd.h>
+
+       int unlink(const char *pathname);
+
+DESCRIPTION
+       unlink()  deletes a name from the filesystem.  If that name was the last link to a file and no processes have the file open, the file is deleted and the space it
+       was using is made available for reuse.
+
+RETURN VALUE
+       On success, zero is returned.  On error, -1 is returned, and errno is set appropriately.
 ```
 
 - rename (2)
 
 ```bash
+SYNOPSIS
+       #include <stdio.h>
+
+       int rename(const char *oldpath, const char *newpath);
+
+DESCRIPTION
+       rename()  renames  a  file,  moving  it  between directories if required.  Any other hard links to the file (as created using link(2)) are unaffected.  Open file
+       descriptors for oldpath are also unaffected.
+
+RETURN VALUE
+       On success, zero is returned.  On error, -1 is returned, and errno is set appropriately.
 ```
 
 - stat (2)

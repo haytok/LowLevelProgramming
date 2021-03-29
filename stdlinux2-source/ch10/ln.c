@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
         fprintf(stderr, "%s: wrong arguments.\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-    if (link(argv[1], argv[2]) < 0) {
+    if (symlink(argv[1], argv[2]) < 0) {
         die(argv[1]);
     }
     exit(EXIT_SUCCESS);
