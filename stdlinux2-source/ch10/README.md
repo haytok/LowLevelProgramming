@@ -127,6 +127,16 @@ RETURN VALUE
 - rmdir (2)
 
 ```bash
+SYNOPSIS
+       #include <unistd.h>
+
+       int rmdir(const char *pathname);
+
+DESCRIPTION
+       rmdir() deletes a directory, which must be empty.
+
+RETURN VALUE
+       On success, zero is returned.  On error, -1 is returned, and errno is set appropriately.
 ```
 
 - link (2)
