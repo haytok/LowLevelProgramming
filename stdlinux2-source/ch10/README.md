@@ -94,11 +94,34 @@ RETURN VALUE
 - mkdir (2)
 
 ```bash
+SYNOPSIS
+       #include <sys/stat.h>
+       #include <sys/types.h>
+
+       int mkdir(const char *pathname, mode_t mode);
+
+RETURN VALUE
+       mkdir() and mkdirat() return zero on success, or -1 if an error occurred (in which case, errno is set appropriately).
 ```
 
 - umask (2)
 
 ```bash
+SYNOPSIS
+       #include <sys/types.h>
+       #include <sys/stat.h>
+
+       mode_t umask(mode_t mask);
+
+DESCRIPTION
+       umask()  sets the calling processs file mode creation mask (umask) to mask & 0777 (i.e., only the file permission bits of mask are used), and returns the previ‐
+       ous value of the mask.
+
+       The umask is used by open(2), mkdir(2), and other system calls that create files to modify the permissions placed on newly created files or directories.  Specif‐
+       ically, permissions in the umask are turned off from the mode argument to open(2) and mkdir(2).
+
+RETURN VALUE
+       This system call always succeeds and the previous value of the mask is returned.
 ```
 
 - rmdir (2)
