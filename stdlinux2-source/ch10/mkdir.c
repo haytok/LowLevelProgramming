@@ -16,6 +16,7 @@ int main(int argc, char **argv) {
             die(dir_name);
         }
     }
+    exit(EXIT_SUCCESS);
 }
 
 void die(char *path) {
