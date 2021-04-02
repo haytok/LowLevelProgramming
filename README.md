@@ -13,7 +13,7 @@
 - [コンテナインターンシップ](https://github.com/rrreeeyyy/container-internship)
 
 ### コーディング
-- {AtCoder](https://atcoder.jp/)
+- [AtCoder](https://atcoder.jp/)
 - [Exercism](https://exercism.io/my/tracks)
 
 ### YouTube
