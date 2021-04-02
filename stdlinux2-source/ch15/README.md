@@ -10,7 +10,7 @@
 
 ### マニュアル
 
-- 
+- getaddrinfo
 
 ```bash
 ```
@@ -22,6 +22,8 @@
 
 ## 練習問題
 ### 15.6.1
+- `telnet localhost 13`
+- `telnet localhost daytime`
 
 ### 15.6.2
-
+- daytime.c の実装とほとんど同じ。
