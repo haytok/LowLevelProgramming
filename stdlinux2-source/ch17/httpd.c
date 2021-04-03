@@ -12,6 +12,9 @@
 #include <time.h>
 #include <sys/time.h>
 #include <fcntl.h>
+#include <sys/socket.h>
+#include <getopt.h>
+#include <netdb.h>
 
 #define LINE_BUF_SIZE 1024
 #define MAX_REQUEST_BODY_LENGTH (1024 * 1024)
@@ -21,6 +24,8 @@
 #define SERVER_VERSION "1.0"
 #define HTTP_MINOR_VERSION 0
 #define TIME_BUF_SIZE 6
+#define USAGE "Usage: %s [--port=n] [--chroot --user=u --group=g] <docroot>\n"
+#define MAX_BACKLOG 5
 
 typedef void (*sighandler_t)(int);
 typedef struct HTTPHeaderField HTTPHeaderField;
@@ -48,6 +53,9 @@ struct FileInfo {
     int ok;
 };
 
+int listen_socket(char *port);
+void server_main(int server_fd, char *docroot);
+
 void service(FILE *in, FILE *out, char *docroot);
 HTTPRequest *read_request(FILE *in);
 void read_request_line(HTTPRequest *req, FILE *in);
@@ -73,16 +81,127 @@ void install_signal_handlers(void);
 void trap_signal(int sig, sighandler_t handler);
 void signal_exit(int sig);
 
+int debug_mode = 0;
+
+static struct option long_options[] = {
+    {"debug", no_argument, &debug_mode, 1},
+    {"port", required_argument, 0, 'p'},
+    {"help", no_argument, 0, 'h'},
+    {0, 0, 0, 0}
+};
+
 // ./httpd . のようにコマンドを実行する
 int main(int argc, char **argv) {
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <docroot>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
+
+    // オプションの解析
+    int c;
+    char *port = "8080";
+    char *docroot;
+    while (
+        (c = getopt_long(argc, argv, "", long_options, NULL)) != -1
+    ) {
+        switch (c) {
+            case 0:
+                break;
+            case 'p':
+                port = optarg;
+                break;
+            case 'h':
+                fprintf(stderr, USAGE, argv[0]);
+                exit(EXIT_SUCCESS);
+            case '?': {
+                fprintf(stderr, USAGE, argv[0]);
+                exit(EXIT_FAILURE);
+            }
+        }
+    }
+
+    if (optind != argc - 1) {
+        fprintf(stderr, USAGE, argv[0]);
+        exit(EXIT_FAILURE);
+    }
+    docroot = argv[optind];
+
     install_signal_handlers();
     printf("Http Server Starts ...\n");
-    service(stdin, stdout, argv[1]);
+
+    // server 側のセットアップ
+    // socket() -> bind() -> listen() -> accept()
+    int server_fd;
+    server_fd = listen_socket(port);
+    // printf("server_fd: %d", server_fd);
+    // if (!debug_mode) {
+    //     printf("Hello");
+    // }
+
+    server_main(server_fd, docroot);
+    // service(stdin, stdout, docroot);
     exit(EXIT_SUCCESS);
+}
+
+int listen_socket(char *port) {
+    // socket()
+    // bind()
+    // listen()
+    struct addrinfo hints, *res, *ai;
+    int err;
+
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_flags = AI_PASSIVE;
+    if ((err = getaddrinfo(NULL, port, &hints, &res)) != 0) {
+        log_exit(gai_strerror(err));
+    }
+    for (ai = res; ai; ai = ai->ai_next) {
+        int sock;
+        sock = socket(ai->ai_family, ai->ai_socktype, ai->ai_protocol);
+        if (socket < 0) {
+            continue;
+        }
+        if (bind(sock, ai->ai_addr, ai->ai_addrlen) < 0) {
+            close(sock);
+            continue;
+        }
+        if (listen(sock, MAX_BACKLOG) < 0) {
+            close(sock);
+            continue;
+        }
+        freeaddrinfo(res);
+        return sock;
+    }
+}
+
+void server_main(int server_fd, char *docroot) {
+    for (;;) {
+        // この辺からよくわからん
+        struct sockaddr_storage addr;
+        socklen_t addrlen = sizeof(addr);
+        int sock;
+        int pid;
+
+        sock = accept(server_fd, (struct sockaddr *)&addr, &addrlen);
+        if (sock < 0) {
+            log_exit("accept (2) failed: %s", strerror(errno));
+        }
+        pid = fork();
+        if (pid < 0) {
+            exit(3);
+        }
+        // 子プロセス
+        if (pid == 0) {
+            FILE *inf = fdopen(sock, "r");
+            FILE *outf = fdopen(sock, "w");
+
+            service(inf, outf, docroot);
+            exit(EXIT_SUCCESS);
+        }
+        close(sock);
+    }
 }
 
 void service(FILE *in, FILE *out, char *docroot) {
@@ -92,7 +211,7 @@ void service(FILE *in, FILE *out, char *docroot) {
     // response を返す関数
     respond_to(req, out, docroot);
     // request オブジェクトに割り当てられた動的メモリを解放する関数
-    // free_request(req);
+    free_request(req);
 }
 
 HTTPRequest *read_request(FILE *in) {
