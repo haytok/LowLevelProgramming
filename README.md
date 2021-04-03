@@ -5,6 +5,7 @@
 ### 書籍
 - [ふつうのLinuxプログラミング 第2版 サポートサイト](https://i.loveruby.net/stdlinux2/) (Finish 2021/04/03)
   - [ふつうのLinuxプログラミング 第2版 練習問題の解答例](https://i.loveruby.net/stdlinux2/answers.html)
+- [自作エミュレータで学ぶx86アーキテクチャ](https://book.mynavi.jp/support/bookmook/x86/#bookinfo)
 - [Apress / low-level-programming](https://github.com/Apress/low-level-programming)
 
 ### Web サイト
