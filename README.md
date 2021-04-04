@@ -3,6 +3,7 @@
 ## 参考
 
 ### 書籍
+- [コンピュータシステムの理論と実装 ―モダンなコンピュータの作り方](https://www.nand2tetris.org/) (Finish 2021/02/16)
 - [ふつうのLinuxプログラミング 第2版 サポートサイト](https://i.loveruby.net/stdlinux2/) (Finish 2021/04/03)
   - [ふつうのLinuxプログラミング 第2版 練習問題の解答例](https://i.loveruby.net/stdlinux2/answers.html)
 - [自作エミュレータで学ぶx86アーキテクチャ](https://book.mynavi.jp/support/bookmook/x86/#bookinfo)
