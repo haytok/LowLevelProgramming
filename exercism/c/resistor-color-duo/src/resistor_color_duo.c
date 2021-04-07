@@ -6,3 +6,8 @@ int color_code(resistor_band_t *bands) {
     sprintf(buf2, "%d", bands[1]);
     return atoi(strcat(buf1, buf2));
 }
+
+// 以下の回答の方が良い
+// int color_code(resistor_band_t *bands) {
+//     return bands[0] * 10 + bands[1];
+// }
