@@ -1,6 +1,15 @@
 #ifndef ACRONYM_H
 #define ACRONYM_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdbool.h>
+
+typedef unsigned int u_int;
+
 char *abbreviate(const char *phrase);
+void upcase(char *actual);
 
 #endif
