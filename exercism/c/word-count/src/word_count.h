@@ -1,6 +1,12 @@
 #ifndef WORD_COUNT_H
 #define WORD_COUNT_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <ctype.h>
+
 #define MAX_WORDS 20            // at most MAX_WORDS can be found in the test input string
 #define MAX_WORD_LENGTH 50      // no individual word can exceed this length
 
@@ -23,5 +29,7 @@ typedef struct word_count_word {
 //           returns a negative number if an error.
 //           words will contain the results up to that point.
 int count_words(const char *sentence, word_count_word_t * words);
+int is_exit(word_count_word_t *words, char *buf);
+void lowcase(char *actual);
 
 #endif
