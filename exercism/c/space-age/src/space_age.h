@@ -12,6 +12,7 @@ typedef enum planet {
    SATURN,
    URANUS,
    NEPTUNE,
+   COUNTS,
 } planet_t;
 
 float age(planet_t planet, int64_t seconds);
