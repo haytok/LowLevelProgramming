@@ -10,7 +10,8 @@ char *to_rna(const char *dna) {
     char *p;
     p  = malloc(sizeof(char *) * 1024);
     for (p = rna; *p; p++) {
-        *p = (char)toupper((int)*p);
+        // 挟んでも意味をなさない処理が記述されていた。
+        // *p = (char)toupper((int)*p);
         if (*p == 'A') {
             *p = 'U';
         } else if (*p == 'T') {
