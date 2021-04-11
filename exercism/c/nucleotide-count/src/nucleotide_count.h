@@ -8,6 +8,14 @@
 #include <string.h>
 #include <ctype.h>
 
+typedef enum nucleotide {
+   A,
+   C,
+   G,
+   T,
+   COUNTS,
+} nucleotide_t;
+
 char *count(const char *dna_strand);
 
 #endif
