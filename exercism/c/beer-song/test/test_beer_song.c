@@ -35,7 +35,7 @@ static void test_last_generic_verse(void)
 
 static void test_verse_with_2_bottles(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "2 bottles of beer on the wall, 2 bottles of beer.\n"
@@ -47,7 +47,7 @@ static void test_verse_with_2_bottles(void)
 
 static void test_verse_with_1_bottle(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "1 bottle of beer on the wall, 1 bottle of beer.\n"
@@ -59,7 +59,7 @@ static void test_verse_with_1_bottle(void)
 
 static void test_verse_with_0_bottles(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "No more bottles of beer on the wall, no more bottles of beer.\n"
@@ -71,7 +71,7 @@ static void test_verse_with_0_bottles(void)
 
 static void test_first_two_verses(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "99 bottles of beer on the wall, 99 bottles of beer.\n"
@@ -86,7 +86,7 @@ static void test_first_two_verses(void)
 
 static void test_last_three_verses(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
        "2 bottles of beer on the wall, 2 bottles of beer.\n"
