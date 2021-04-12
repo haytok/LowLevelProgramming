@@ -35,3 +35,16 @@ void recite(unsigned int start_bottles, unsigned int take_down, char *buffer) {
     memset(res, '\0', 1024);
     free(res);
 }
+
+// この解答はナイス
+// char * convert(char *buffer, size_t blen, int num)
+// {
+// 	size_t b;
+// 	b  = snprintf(buffer, blen, "%s%s%s",
+// 		 num % 3 == 0 ? "Pling" : "",
+// 		 num % 5 == 0 ? "Plang" : "",
+// 		 num % 7 == 0 ? "Plong" : "");
+// 	if(b <= 0)
+// 		snprintf(buffer, blen, "%d", num);
+// 	return buffer;
+// }
