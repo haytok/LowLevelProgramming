@@ -19,9 +19,12 @@ static void write_values_to_buffer(size_t length, buffer_value_t values[],
                                    bool writeover, circular_buffer_t * buffer)
 {
    for (size_t i = 0; i < length; ++i) {
+      printf("values[i] %d\n", values[i]);
       int16_t status = 0;
-      if (!writeover)
+      if (!writeover){
+         printf("!writeover %d\n", values[i]);
          status = write(buffer, values[i]);
+      }
       else
          status = overwrite(buffer, values[i]);
 
@@ -39,12 +42,15 @@ static void read_values_from_buffer(size_t length, buffer_value_t values[],
       buffer_value_t read_value = 0;
       int16_t status = read(buffer, &read_value);
 
+      printf("values[i]: %d, status %d %d\n", values[i], status, EXIT_SUCCESS);
+
       char error_message[MAX_ERROR_MSG_LEN] = { 0 };
       snprintf(error_message, MAX_ERROR_MSG_LEN,
                "Reading at %zu resulted in errno %d, expected to read %d", i,
                errno, values[i]);
       TEST_ASSERT_EQUAL_INT16_MESSAGE(EXIT_SUCCESS, status, error_message);
 
+      printf("values[i]: %d, read_value %d %d\n", values[i], read_value, EXIT_SUCCESS);
       snprintf(error_message, MAX_ERROR_MSG_LEN,
                "Read %d at %zu where %d was expected", read_value, i,
                values[i]);
@@ -67,7 +73,7 @@ static void test_reading_empty_buffer_fails(void)
 
 static void test_can_read_item_just_written(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    size_t capacity = 1;
    buffer_value_t values[] = { 1 };
    size_t values_length = ARRAY_LENGTH(values);
@@ -81,7 +87,7 @@ static void test_can_read_item_just_written(void)
 
 static void test_each_item_may_only_be_read_once(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 1;
    buffer_value_t values[] = { 1 };
    size_t values_length = ARRAY_LENGTH(values);
@@ -98,9 +104,10 @@ static void test_each_item_may_only_be_read_once(void)
    delete_buffer(buffer);
 }
 
+//
 static void test_items_are_read_in_order_written(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 2;
    buffer_value_t values[] = { 1, 2 };
    size_t values_length = ARRAY_LENGTH(values);
