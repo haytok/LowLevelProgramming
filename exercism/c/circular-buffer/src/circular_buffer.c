@@ -2,10 +2,16 @@
 
 circular_buffer_t *new_circular_buffer(size_t capacity) {
     circular_buffer_t *buffer = malloc(sizeof(circular_buffer_t));
-    buffer->capacity = capacity;
-    buffer->read_index = 0;
-    buffer->write_index = 0;
-    buffer->buffer = malloc(sizeof(buffer_value_t) * capacity);
+    // buffer->capacity = capacity;
+    // buffer->read_index = 0;
+    // buffer->write_index = 0;
+    // buffer->buffer = malloc(sizeof(buffer_value_t) * capacity);
+    *buffer = (circular_buffer_t) {
+        .read_index = 0,
+        .write_index = 0,
+        .capacity = capacity,
+        .buffer = malloc(sizeof(buffer_value_t) * capacity)
+    };
     return buffer;
 }
 
