@@ -1,77 +1,56 @@
 #include "circular_buffer.h"
 
-// size_t length = 0;
-circular_buffer_t *start;
-// = malloc(sizeof(circular_buffer_t) * 1024);
-
 circular_buffer_t *new_circular_buffer(size_t capacity) {
-    circular_buffer_t *buffer = malloc(sizeof(circular_buffer_t) * capacity);
-    // length = capacity;
-    start = buffer;
+    circular_buffer_t *buffer = malloc(sizeof(circular_buffer_t));
+    buffer->capacity = capacity;
+    buffer->read_index = 0;
+    buffer->write_index = 0;
+    buffer->buffer = malloc(sizeof(buffer_value_t) * capacity);
     return buffer;
 }
 
 int16_t read(circular_buffer_t *buffer, buffer_value_t *read_value) {
-    printf("read %d %d %d\n", *buffer, read_value[0], EXIT_FAILURE);
-    if (*buffer == 0) {
+    if (buffer->read_index == buffer->write_index) {
         errno = ENODATA;
         return EXIT_FAILURE; // 1
     }
-    // circular_buffer_t *head = buffer;
-    // while (*head) {
-    //     if (*head == read_value[0]) {
-    //         printf("*head %d\n", *head);
-    //         read_value[0] = *head;
-    //         return EXIT_SUCCESS;  // 0
-    //     }
-    //     head++;
-    // }
-    read_value[0] = *buffer;
-    *buffer = 0;
-    if ((int)(buffer - start) == (get_array_length(buffer) - 1)) {
-        buffer = start;
-    } else {
-        buffer++;
-    }
-    printf("diff %ld\n", (buffer - start));
-    // if (*buffer == 0) {
-    //     buffer = head;
-    // }
-    printf("Hello\n");
+    read_value[0] = buffer->buffer[buffer->read_index++ % buffer->capacity];
     return EXIT_SUCCESS; // 0
 }
 
 void delete_buffer(circular_buffer_t *buffer) {
+    free(buffer->buffer);
     free(buffer);
 }
 
 int16_t write(circular_buffer_t *buffer, buffer_value_t value) {
-    *buffer = value;
-    printf(
-        "In write, get_array_length %d %d %d\n",
-        get_array_length(buffer),
-        *buffer,
-        (int)(buffer - start)
-    );
-    if ((int)(buffer - start) == (get_array_length(buffer) - 1)) {
-        printf("Helssssl\n");
-        buffer = start;
-    } else {
-        buffer++;
+    if (get_array_length(buffer) == buffer->capacity) {
+        errno = ENOBUFS;
+        return EXIT_FAILURE;
     }
-    printf("diff %d\n", (int)(buffer - start));
+    buffer->buffer[buffer->write_index++ % buffer->capacity] = value;
     return EXIT_SUCCESS;
 }
 
 int16_t overwrite(circular_buffer_t *buffer, buffer_value_t value) {
-    printf("%d %d\n", buffer[0], value);
-    return 0;
+    write(buffer, value);
+    // write_index と read_index の差はリングバッファに書き込まれた値の数である。
+    // この値と capacity の大きさが等しい時は、リングバッファがフルに埋まっている。
+    if (errno == ENOBUFS) {
+        buffer->buffer[buffer->write_index++ % buffer->capacity] = value;
+        buffer->read_index++;
+    }
+    return EXIT_SUCCESS;
 }
 
 void clear_buffer(circular_buffer_t *buffer) {
-    printf("%d\n", buffer[0]);   
+    buffer->read_index = 0;
+    buffer->write_index = 0;
 }
 
-int get_array_length(int *array) {
-    return sizeof(array) / sizeof(array[0]);
+int get_array_length(circular_buffer_t *buffer) {
+    return buffer->write_index - buffer->read_index;
 }
+
+// 0 1 2 3 4
+// <- read_index write_index ->

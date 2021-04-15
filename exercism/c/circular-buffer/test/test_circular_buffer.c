@@ -19,10 +19,10 @@ static void write_values_to_buffer(size_t length, buffer_value_t values[],
                                    bool writeover, circular_buffer_t * buffer)
 {
    for (size_t i = 0; i < length; ++i) {
-      printf("values[i] %d\n", values[i]);
+      // printf("values[i] %d\n", values[i]);
       int16_t status = 0;
       if (!writeover){
-         printf("!writeover %d\n", values[i]);
+         // printf("!writeover %d\n", values[i]);
          status = write(buffer, values[i]);
       }
       else
@@ -42,7 +42,7 @@ static void read_values_from_buffer(size_t length, buffer_value_t values[],
       buffer_value_t read_value = 0;
       int16_t status = read(buffer, &read_value);
 
-      printf("values[i]: %d, status %d %d\n", values[i], status, EXIT_SUCCESS);
+      // printf("values[i]: %d, status %d %d\n", values[i], status, EXIT_SUCCESS);
 
       char error_message[MAX_ERROR_MSG_LEN] = { 0 };
       snprintf(error_message, MAX_ERROR_MSG_LEN,
@@ -50,7 +50,7 @@ static void read_values_from_buffer(size_t length, buffer_value_t values[],
                errno, values[i]);
       TEST_ASSERT_EQUAL_INT16_MESSAGE(EXIT_SUCCESS, status, error_message);
 
-      printf("values[i]: %d, read_value %d %d\n", values[i], read_value, EXIT_SUCCESS);
+      // printf("values[i]: %d, read_value %d %d\n", values[i], read_value, EXIT_SUCCESS);
       snprintf(error_message, MAX_ERROR_MSG_LEN,
                "Read %d at %zu where %d was expected", read_value, i,
                values[i]);
@@ -94,6 +94,7 @@ static void test_each_item_may_only_be_read_once(void)
    buffer_value_t read_value = 0;
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
+   printf("size %ld \n", sizeof(buffer->buffer) / sizeof(buffer->buffer[0]));
    write_values_to_buffer(values_length, values, false, buffer);
    read_values_from_buffer(values_length, values, buffer);
 
@@ -113,6 +114,7 @@ static void test_items_are_read_in_order_written(void)
    size_t values_length = ARRAY_LENGTH(values);
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
+   printf("size %ld \n", sizeof(buffer->buffer) / sizeof(buffer->buffer[0]));
    write_values_to_buffer(values_length, values, false, buffer);
    read_values_from_buffer(values_length, values, buffer);
 
@@ -121,10 +123,12 @@ static void test_items_are_read_in_order_written(void)
 
 static void test_full_buffer_cannot_be_written_to(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 1;
+   printf("Hello\n");
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
+   printf("size %ld \n", sizeof(buffer->buffer) / sizeof(buffer->buffer[0]));
    write_values_to_buffer(1, (buffer_value_t[]) {
                           1}, false, buffer);
 
@@ -138,7 +142,7 @@ static void test_full_buffer_cannot_be_written_to(void)
 
 static void test_read_frees_capacity_for_another_write(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 1;
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
@@ -156,7 +160,7 @@ static void test_read_frees_capacity_for_another_write(void)
 
 static void test_read_position_maintained_across_multiple_writes(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 3;
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
@@ -174,7 +178,7 @@ static void test_read_position_maintained_across_multiple_writes(void)
 
 static void test_cleared_buffer_cannot_be_read(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 1;
    buffer_value_t read_value = 0;
 
@@ -191,7 +195,7 @@ static void test_cleared_buffer_cannot_be_read(void)
 
 static void test_clear_frees_capacity_for_another_write(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 1;
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
@@ -208,7 +212,7 @@ static void test_clear_frees_capacity_for_another_write(void)
 
 static void test_clear_does_nothing_on_an_empty_buffer(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 1;
    buffer_value_t values[] = { 1 };
    size_t values_length = ARRAY_LENGTH(values);
@@ -222,7 +226,7 @@ static void test_clear_does_nothing_on_an_empty_buffer(void)
 
 static void test_overwrite_acts_like_write_on_non_full_buffer(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 2;
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
@@ -238,7 +242,7 @@ static void test_overwrite_acts_like_write_on_non_full_buffer(void)
 
 static void test_overwrite_replaces_oldest_item_on_full_buffer(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 2;
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
@@ -254,7 +258,7 @@ static void test_overwrite_replaces_oldest_item_on_full_buffer(void)
 
 static void test_overwrite_replaces_oldest_item_remaining_following_read(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 3;
 
    circular_buffer_t *buffer = new_circular_buffer(capacity);
@@ -274,7 +278,7 @@ static void test_overwrite_replaces_oldest_item_remaining_following_read(void)
 
 static void test_initial_clear_does_not_affect_wrapping(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    size_t capacity = 2;
    buffer_value_t read_value = 0;
 
