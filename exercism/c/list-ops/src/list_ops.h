@@ -3,8 +3,15 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <errno.h>
+#include <stdint.h>
 
 typedef int list_value_t;
+typedef int list_element_t;
 
 typedef struct {
    size_t length;
