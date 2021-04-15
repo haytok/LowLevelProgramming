@@ -10,6 +10,13 @@
         "array": "c",
         "tuple": "c",
         "type_traits": "c",
-        "utility": "c"
-    }
+        "utility": "c",
+        "algorithm": "c",
+        "*.tcc": "c",
+        "fstream": "c",
+        "iostream": "c",
+        "typeinfo": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "editor.fontSize": 18
 }
