@@ -1,6 +1,15 @@
 #ifndef ROBOT_SIMULATOR_H
 #define ROBOT_SIMULATOR_H
 
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <errno.h>
+#include <stdint.h>
+
 typedef enum {
    DIRECTION_NORTH = 0,
    DIRECTION_DEFAULT = DIRECTION_NORTH,
