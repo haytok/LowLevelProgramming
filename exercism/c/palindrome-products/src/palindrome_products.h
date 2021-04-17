@@ -1,6 +1,16 @@
 #ifndef PALINDROME_PRODUCTS_H
 #define PALINDROME_PRODUCTS_H
 
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <errno.h>
+#include <stdint.h>
+#include <math.h>
+
 #define MAXERR 100
 
 typedef struct factors {
@@ -21,5 +31,8 @@ typedef struct product product_t;
 
 product_t *get_palindrome_product(int from, int to);
 void free_product(product_t * p);
+void free_factor(factor_t *f);
+unsigned str_length(const char str[]);
+void rev_string(char str[]);
 
 #endif

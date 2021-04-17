@@ -38,6 +38,7 @@ static bool factor_t_are_equal(const factor_t * const f1,
  * exceeds the number of checked elements (passed as the `depth` variable),
  * it returns false.
  * */
+// actual, expected
 static bool
 contains_factor(factor_t * factors, const factor_t * const factor,
                 const size_t depth)
@@ -93,7 +94,7 @@ static void test_smallest_palindrome_from_single_digit_factors(void)
 
 static void test_largest_palindrome_from_single_digit_factors(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1, 9);
    TEST_ASSERT_NOT_NULL(product);
    TEST_ASSERT_EQUAL_INT(9, product->largest);
@@ -106,7 +107,7 @@ static void test_largest_palindrome_from_single_digit_factors(void)
 
 static void test_smallest_palindrome_from_double_digit_factors(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(10, 99);
    TEST_ASSERT_NOT_NULL(product);
    TEST_ASSERT_EQUAL_INT(121, product->smallest);
@@ -119,7 +120,7 @@ static void test_smallest_palindrome_from_double_digit_factors(void)
 
 static void test_largest_palindrome_from_double_digit_factors(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(10, 99);
    TEST_ASSERT_NOT_NULL(product);
    TEST_ASSERT_EQUAL_INT(9009, product->largest);
@@ -132,7 +133,7 @@ static void test_largest_palindrome_from_double_digit_factors(void)
 
 static void test_smallest_palindrome_from_triple_digit_factors(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(100, 999);
    TEST_ASSERT_NOT_NULL(product);
    TEST_ASSERT_EQUAL_INT(10201, product->smallest);
@@ -145,7 +146,7 @@ static void test_smallest_palindrome_from_triple_digit_factors(void)
 
 static void test_largest_palindrome_from_triple_digit_factors(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(100, 999);
    TEST_ASSERT_NOT_NULL(product);
    TEST_ASSERT_EQUAL_INT(906609, product->largest);
@@ -158,7 +159,7 @@ static void test_largest_palindrome_from_triple_digit_factors(void)
 
 static void test_smallest_palindrome_from_four_digit_factors(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1000, 9999);
    TEST_ASSERT_NOT_NULL(product);
    TEST_ASSERT_EQUAL_INT(1002001, product->smallest);
@@ -171,7 +172,7 @@ static void test_smallest_palindrome_from_four_digit_factors(void)
 
 static void test_largest_palindrome_from_four_digit_factors(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1000, 9999);
    TEST_ASSERT_NOT_NULL(product);
    TEST_ASSERT_EQUAL_INT(99000099, product->largest);
@@ -184,7 +185,7 @@ static void test_largest_palindrome_from_four_digit_factors(void)
 
 static void test_empty_result_for_smallest_if_no_palindrome_in_the_range(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1002, 1003);
    TEST_ASSERT_NOT_NULL(product);
    const char *expected =
@@ -196,7 +197,7 @@ static void test_empty_result_for_smallest_if_no_palindrome_in_the_range(void)
 
 static void test_empty_result_for_largest_if_no_palindrome_in_the_range(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(15, 15);
    TEST_ASSERT_NOT_NULL(product);
    const char *expected = "no palindrome with factors in the range 15 to 15";
@@ -207,7 +208,7 @@ static void test_empty_result_for_largest_if_no_palindrome_in_the_range(void)
 
 static void test_error_result_for_smallest_if_min_is_more_than_max(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(10000, 1);
    TEST_ASSERT_NOT_NULL(product);
    const char *expected = "invalid input: min is 10000 and max is 1";
@@ -218,7 +219,7 @@ static void test_error_result_for_smallest_if_min_is_more_than_max(void)
 
 static void test_error_result_for_largest_if_min_is_more_than_max(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(2, 1);
    TEST_ASSERT_NOT_NULL(product);
    const char *expected = "invalid input: min is 2 and max is 1";
