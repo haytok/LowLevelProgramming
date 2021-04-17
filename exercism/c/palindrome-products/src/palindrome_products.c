@@ -1,5 +1,7 @@
 #include "palindrome_products.h"
 
+// 愚直に計算すると、計算が莫大になるので、適当にエスケープする。
+// 文字列の反転や構造体を使用したオブジェクトの作成方法や連結リストの基本を学んだ。
 product_t *get_palindrome_product(int from, int to) {
     product_t *product;
     product = malloc(sizeof(product_t));
