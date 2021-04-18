@@ -1,8 +1,16 @@
 #ifndef PRIME_FACTORS_H
 #define PRIME_FACTORS_H
 
-#include <stdint.h>
 #include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <errno.h>
+#include <math.h>
 
 #define MAXFACTORS 10
 
