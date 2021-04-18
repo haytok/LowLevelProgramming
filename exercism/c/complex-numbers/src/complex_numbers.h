@@ -1,6 +1,16 @@
 #ifndef _COMPLEX_NUMBERS_H_
 #define _COMPLEX_NUMBERS_H_
 
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <errno.h>
+#include <math.h>
+
 typedef struct {
    double real;
    double imag;
