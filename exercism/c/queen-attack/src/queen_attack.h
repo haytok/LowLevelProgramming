@@ -2,6 +2,13 @@
 #define QUEEN_ATTACK_H
 
 #include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <errno.h>
 
 typedef enum {
    CAN_NOT_ATTACK,
