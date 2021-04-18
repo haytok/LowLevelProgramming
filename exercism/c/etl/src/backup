@@ -1,0 +1,68 @@
+#include "etl.h"
+
+// typedef struct {
+//    int value;
+//    const char *keys;
+// } legacy_map;
+// legacy_map input[] = { {1, "AE"}, {2, "DG"} };
+
+// typedef struct {
+//    char key;
+//    int value;
+// } new_map;
+// new_map expected_map[] = {
+//     {'a', 1}, {'d', 2}, {'e', 1}, {'g', 2}
+// };
+
+int convert(const legacy_map * input, const size_t input_len,
+            new_map ** output) {
+    int count = 0;
+    *output = (new_map *)malloc(sizeof(new_map *) * 1024);
+    for (int i = 0; i < (int)input_len; i++) {
+        // legacy_map map = input[i];
+        // int length = strlen(map.keys);
+        for (char *c = input[i].keys; *c; c++) {
+            output[count] = (new_map *)malloc(sizeof(new_map) * 1024);
+            output[count]->key = (*c - 'A') + 'a';
+            output[count]->value = input[i].value;
+            count++;
+        }
+        // for (int j = 0; j < length; j++) {
+        //     // output[count] = (new_map *)malloc(sizeof(new_map) * 1024);
+        //     output[count]->key = tolower(map.keys[j]);
+        //     output[count]->value = map.value;
+        //     printf("value %c %d\n", output[count]->key, output[count]->value);
+        //     // printf("count %d\n", count);
+        //     count++;
+        // }
+        // printf("map %d %s\n", map.value, map.keys);
+        // printf("-----\n");
+        // while (*map.keys) {
+        //     printf("input %c\n", *map.keys);
+        //     // char buf;
+        //     // strncpy(buf, map.keys, 1);
+        //     // buf = tolower(buf);
+        //     if (find_letter(tolower(*map.keys), output, count) < 0) {
+        //         // Python っぽい書き方に慣れすぎているので、以下の実装をしがちでよく間違える。
+        //         // new_map n = (new_map) {
+        //         //     n.key = tolower(*map.keys),
+        //         //     n.value = 1,
+        //         // };
+        //         // memset(*output[count], n, 1024);
+        //         // *output[count] = n;
+        //         // output[count] 自体にメモリを確保して、そこに値をぶら下げる。
+        //         output[count] = (new_map *)malloc(sizeof(new_map) * 1024);
+        //         output[count]->key = (*map.keys - 'A') + 'a';
+        //         output[count]->value = map.value;
+        //         printf("value %c %d\n", output[count]->key, output[count]->value);
+        //         // printf("count %d\n", count);
+        //         count++;
+        //     } else {
+        //         output[count]->value += 1;
+        //     }
+        //     map.keys++;
+        // }
+    }
+    printf("count %d\n", count);
+    return count;
+}

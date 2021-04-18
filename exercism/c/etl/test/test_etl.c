@@ -41,7 +41,7 @@ static void test_a_single_letter(void)
 
 static void test_single_score_with_multiple_letters(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    legacy_map input[] = { {1, "AEIOU"} };
    int input_len = 1;
 
@@ -61,7 +61,7 @@ static void test_single_score_with_multiple_letters(void)
 
 static void test_multiple_scores_with_multiple_letters(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    legacy_map input[] = { {1, "AE"}, {2, "DG"} };
    int input_len = 2;
 
@@ -81,7 +81,7 @@ static void test_multiple_scores_with_multiple_letters(void)
 
 static void test_multiple_scores_with_differing_numbers_of_letters(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    legacy_map input[] = {
       {10, "QZ"}, {1, "AEIOULNRST"}, {3, "BCMP"}, {2, "DG"},
       {5, "K"}, {4, "FHVWY"}, {8, "JX"}
