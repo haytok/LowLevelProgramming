@@ -25,5 +25,6 @@ struct move_v {
 char **annotate(const char **minefield, const size_t rows);
 void free_annotation(char **annotation);
 bool is_exist(int n_row, int n_column, int asterisk_rows[LENGTH], int asterisk_columns[LENGTH], int asterisk_counts);
+bool is_neighbor(int n_row, int n_column, move_v asterisk_position[LENGTH], int asterisk_counts);
 
 #endif
