@@ -22,7 +22,7 @@ static void test_annotate_no_rows(void)
 
 static void test_annotate_no_columns(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    const char *minefield[] = {
       ""
    };
@@ -35,7 +35,7 @@ static void test_annotate_no_columns(void)
 
 static void test_annotate_no_mines(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       "   ",
       "   ",
@@ -54,7 +54,7 @@ static void test_annotate_no_mines(void)
 
 static void test_annotate_minefield_with_only_mines(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       "***",
       "***",
@@ -73,7 +73,7 @@ static void test_annotate_minefield_with_only_mines(void)
 
 static void test_annotate_mine_surrounded_by_spaces(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       "   ",
       " * ",
@@ -92,7 +92,7 @@ static void test_annotate_mine_surrounded_by_spaces(void)
 
 static void test_annotate_space_surrounded_by_mines(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       "***",
       "* *",
@@ -111,7 +111,7 @@ static void test_annotate_space_surrounded_by_mines(void)
 
 static void test_annotate_horizontal_line(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       " * * "
    };
@@ -126,7 +126,7 @@ static void test_annotate_horizontal_line(void)
 
 static void test_annotate_horizontal_line_mines_at_edges(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       "*   *"
    };
@@ -141,7 +141,7 @@ static void test_annotate_horizontal_line_mines_at_edges(void)
 
 static void test_annotate_vertical_line(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       " ",
       "*",
@@ -164,7 +164,7 @@ static void test_annotate_vertical_line(void)
 
 static void test_annotate_vertical_line_mines_at_edges(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       "*",
       " ",
@@ -187,7 +187,7 @@ static void test_annotate_vertical_line_mines_at_edges(void)
 
 static void test_annotate_cross(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       "  *  ",
       "  *  ",
@@ -210,7 +210,7 @@ static void test_annotate_cross(void)
 
 static void test_annotate_large_minefield(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *minefield[] = {
       " *  * ",
       "  *   ",
