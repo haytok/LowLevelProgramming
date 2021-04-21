@@ -297,7 +297,7 @@ static void test_words_other_than_themselves_can_be_anagrams(void)
 
 static void test_unicode_anagrams(void)
 {
-   TEST_IGNORE();               // This is an extra credit test.  Delete this line to accept the challenge
+   // TEST_IGNORE();               // This is an extra credit test.  Delete this line to accept the challenge
    // These words don't make sense, they're just greek letters cobbled together.
    char inputs[][MAX_STR_LEN] = {
       "ΒΓΑ",
@@ -316,7 +316,7 @@ static void test_unicode_anagrams(void)
 
 static void test_misleading_unicode_anagrams(void)
 {
-   TEST_IGNORE();               //This is an extra credit test, are you up for the challenge
+   // TEST_IGNORE();               //This is an extra credit test, are you up for the challenge
    // Despite what a human might think these words different letters, the input uses Greek A and B
    // while the list of potential anagrams uses Latin A and B.
    char inputs[][MAX_STR_LEN] = {

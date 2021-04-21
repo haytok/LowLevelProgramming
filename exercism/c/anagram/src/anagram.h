@@ -12,7 +12,6 @@
 #include <stdint.h>
 
 #define MAX_STR_LEN 20
-#define LENGTH 26
 
 enum anagram_status {
    UNCHECKED = -1,
@@ -22,7 +21,7 @@ enum anagram_status {
 
 struct candidate {
    enum anagram_status is_anagram;
-   const char *word;
+   char *word;
 };
 
 struct candidates {
