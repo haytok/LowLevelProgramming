@@ -2,8 +2,17 @@
 #define ANAGRAM_H
 
 #include <stddef.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <errno.h>
+#include <stdint.h>
 
 #define MAX_STR_LEN 20
+#define LENGTH 26
 
 enum anagram_status {
    UNCHECKED = -1,
@@ -21,10 +30,16 @@ struct candidates {
    size_t count;
 };
 
+typedef struct {
+   char key;
+   int counts;
+} element_t;
+
 /**
  * @description - determines if any of the words in candidate are anagrams
  *                for subject. Contents of candidate structures may be modified.
  */
-void find_anagrams(const char *subject, struct candidates *candidates);
+void find_anagrams(char *subject, struct candidates *candidates);
+void lowcase(char *strings);
 
 #endif
