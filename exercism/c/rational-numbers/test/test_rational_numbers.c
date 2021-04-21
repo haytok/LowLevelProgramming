@@ -28,7 +28,7 @@ static void test_add_two_positive_rational_numbers(void)
 
 static void test_add_positive_and_negative_rational_numbers(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    rational_t r1 = { 1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { -1, 6 };
@@ -38,7 +38,7 @@ static void test_add_positive_and_negative_rational_numbers(void)
 
 static void test_add_two_negative_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { -1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { -7, 6 };
@@ -48,7 +48,7 @@ static void test_add_two_negative_rational_numbers(void)
 
 static void test_add_rational_number_to_additive_inverse(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { -1, 2 };
    rational_t expected = { 0, 1 };
@@ -58,7 +58,7 @@ static void test_add_rational_number_to_additive_inverse(void)
 
 static void test_subtract_two_positive_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { -1, 6 };
@@ -68,7 +68,7 @@ static void test_subtract_two_positive_rational_numbers(void)
 
 static void test_subtract_positive_and_negative_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 7, 6 };
@@ -78,7 +78,7 @@ static void test_subtract_positive_and_negative_rational_numbers(void)
 
 static void test_subtract_two_negative_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { -1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 1, 6 };
@@ -88,7 +88,7 @@ static void test_subtract_two_negative_rational_numbers(void)
 
 static void test_subtract_rational_number_from_itself(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 1, 2 };
    rational_t expected = { 0, 1 };
@@ -98,7 +98,7 @@ static void test_subtract_rational_number_from_itself(void)
 
 static void test_multiply_two_positive_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { 1, 3 };
@@ -108,7 +108,7 @@ static void test_multiply_two_positive_rational_numbers(void)
 
 static void test_multiply_positive_and_negative_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { -1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { -1, 3 };
@@ -118,7 +118,7 @@ static void test_multiply_positive_and_negative_rational_numbers(void)
 
 static void test_multiply_two_negative_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { -1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 1, 3 };
@@ -128,7 +128,7 @@ static void test_multiply_two_negative_rational_numbers(void)
 
 static void test_multiply_rational_number_by_reciprocal(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 1 };
    rational_t expected = { 1, 1 };
@@ -138,7 +138,7 @@ static void test_multiply_rational_number_by_reciprocal(void)
 
 static void test_multiply_rational_number_by_one(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 1, 1 };
    rational_t expected = { 1, 2 };
@@ -148,7 +148,7 @@ static void test_multiply_rational_number_by_one(void)
 
 static void test_multiply_rational_number_by_zero(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 0, 1 };
    rational_t expected = { 0, 1 };
@@ -158,7 +158,7 @@ static void test_multiply_rational_number_by_zero(void)
 
 static void test_divide_two_positive_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { 3, 4 };
@@ -168,7 +168,7 @@ static void test_divide_two_positive_rational_numbers(void)
 
 static void test_divide_positive_and_negative_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { -3, 4 };
@@ -178,7 +178,7 @@ static void test_divide_positive_and_negative_rational_numbers(void)
 
 static void test_divide_two_negative_rational_numbers(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { -1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 3, 4 };
@@ -188,7 +188,7 @@ static void test_divide_two_negative_rational_numbers(void)
 
 static void test_divide_rational_number_by_one(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 1, 1 };
    rational_t expected = { 1, 2 };
@@ -198,7 +198,7 @@ static void test_divide_rational_number_by_one(void)
 
 static void test_absolute_value_of_positive_rational_number(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 1, 2 };
    rational_t expected = { 1, 2 };
    rational_t actual = absolute(r);
@@ -208,7 +208,7 @@ static void test_absolute_value_of_positive_rational_number(void)
 static void
     test_absolute_value_of_positive_rational_with_negative_numerator_and_denominator
     (void) {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { -1, -2 };
    rational_t expected = { 1, 2 };
    rational_t actual = absolute(r);
@@ -217,7 +217,7 @@ static void
 
 static void test_absolute_value_of_negative_rational_number(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { -1, 2 };
    rational_t expected = { 1, 2 };
    rational_t actual = absolute(r);
@@ -227,7 +227,7 @@ static void test_absolute_value_of_negative_rational_number(void)
 static void
 test_absolute_value_of_negative_rational_number_with_negative_denominator(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 1, -2 };
    rational_t expected = { 1, 2 };
    rational_t actual = absolute(r);
@@ -236,7 +236,7 @@ test_absolute_value_of_negative_rational_number_with_negative_denominator(void)
 
 static void test_absolute_value_of_zero(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 0, 1 };
    rational_t expected = { 0, 1 };
    rational_t actual = absolute(r);
@@ -245,7 +245,7 @@ static void test_absolute_value_of_zero(void)
 
 static void test_raise_positive_rational_number_to_integer_power(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 1, 2 };
    uint16_t n = 3;
    rational_t expected = { 1, 8 };
@@ -255,7 +255,7 @@ static void test_raise_positive_rational_number_to_integer_power(void)
 
 static void test_raise_negative_rational_number_to_integer_power(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { -1, 2 };
    uint16_t n = 3;
    rational_t expected = { -1, 8 };
@@ -265,7 +265,7 @@ static void test_raise_negative_rational_number_to_integer_power(void)
 
 static void test_raise_zero_to_integer_power(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 0, 1 };
    uint16_t n = 5;
    rational_t expected = { 0, 1 };
@@ -275,7 +275,7 @@ static void test_raise_zero_to_integer_power(void)
 
 static void test_raise_one_to_integer_power(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 1, 2 };
    uint16_t n = 3;
    rational_t expected = { 1, 8 };
@@ -285,7 +285,7 @@ static void test_raise_one_to_integer_power(void)
 
 static void test_raise_positive_rational_number_to_power_of_zero(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 1, 2 };
    uint16_t n = 0;
    rational_t expected = { 1, 1 };
@@ -295,7 +295,7 @@ static void test_raise_positive_rational_number_to_power_of_zero(void)
 
 static void test_raise_negative_rational_number_to_power_of_zero(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { -1, 2 };
    uint16_t n = 0;
    rational_t expected = { 1, 1 };
@@ -305,9 +305,9 @@ static void test_raise_negative_rational_number_to_power_of_zero(void)
 
 static void test_raise_real_number_to_positive_rational_number(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint16_t x = 8;
-   rational_t r = { 4, 3 };
+   rational_t r = { 4, 3 }; // n, d
    float delta = 0.05;
    float expected = 16.0;
    float actual = exp_real(x, r);
@@ -316,7 +316,7 @@ static void test_raise_real_number_to_positive_rational_number(void)
 
 static void test_raise_real_number_to_negative_rational_number(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint16_t x = 9;
    rational_t r = { -1, 2 };
    float delta = 0.000005;
@@ -327,7 +327,7 @@ static void test_raise_real_number_to_negative_rational_number(void)
 
 static void test_raise_real_number_to_zero_rational_number(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint16_t x = 2;
    rational_t r = { 0, 1 };
    float delta = 0.000005;
@@ -338,7 +338,7 @@ static void test_raise_real_number_to_zero_rational_number(void)
 
 static void test_reduce_positive_rational_number_to_lowest_terms(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 2, 4 };
    rational_t expected = { 1, 2 };
    rational_t actual = reduce(r);
@@ -347,7 +347,7 @@ static void test_reduce_positive_rational_number_to_lowest_terms(void)
 
 static void test_reduce_negative_rational_number_to_lowest_terms(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { -4, 6 };
    rational_t expected = { -2, 3 };
    rational_t actual = reduce(r);
@@ -357,7 +357,7 @@ static void test_reduce_negative_rational_number_to_lowest_terms(void)
 static void
 test_reduce_rational_number_with_negative_denominator_to_lowest_terms(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 3, -9 };
    rational_t expected = { -1, 3 };
    rational_t actual = reduce(r);
@@ -366,7 +366,7 @@ test_reduce_rational_number_with_negative_denominator_to_lowest_terms(void)
 
 static void test_reduce_zero_to_lowest_terms(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 0, 6 };
    rational_t expected = { 0, 1 };
    rational_t actual = reduce(r);
@@ -375,7 +375,7 @@ static void test_reduce_zero_to_lowest_terms(void)
 
 static void test_reduce_integer_to_lowest_terms(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { -14, 7 };
    rational_t expected = { -2, 1 };
    rational_t actual = reduce(r);
@@ -384,7 +384,7 @@ static void test_reduce_integer_to_lowest_terms(void)
 
 static void test_reduce_one_to_lowest_terms(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    rational_t r = { 13, 13 };
    rational_t expected = { 1, 1 };
    rational_t actual = reduce(r);
