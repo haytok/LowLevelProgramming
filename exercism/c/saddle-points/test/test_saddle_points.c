@@ -52,7 +52,7 @@ static void test_single_saddle_point(void)
 
 static void test_empty_matrix_has_no_saddle_points(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    size_t expected_count = 0;
    saddle_points_t *actual = saddle_points(0, 0, NULL);
    check_count(expected_count, actual->count);
@@ -61,7 +61,7 @@ static void test_empty_matrix_has_no_saddle_points(void)
 
 static void test_lack_of_saddle_points_when_there_are_none(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint8_t matrix[3][3] = {
       {1, 2, 3},
       {3, 1, 2},
@@ -76,7 +76,7 @@ static void test_lack_of_saddle_points_when_there_are_none(void)
 
 static void test_multiple_saddle_points_in_a_column(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint8_t matrix[3][3] = {
       {4, 5, 4},
       {3, 5, 5},
@@ -93,7 +93,7 @@ static void test_multiple_saddle_points_in_a_column(void)
 
 static void test_multiple_saddle_points_in_a_row(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint8_t matrix[3][3] = {
       {6, 7, 8},
       {5, 5, 5},
@@ -110,7 +110,7 @@ static void test_multiple_saddle_points_in_a_row(void)
 
 static void test_saddle_point_in_bottom_right_corner(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint8_t matrix[3][3] = {
       {8, 7, 9},
       {6, 7, 6},
@@ -127,7 +127,7 @@ static void test_saddle_point_in_bottom_right_corner(void)
 
 static void test_saddle_points_in_non_square_matrix(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint8_t matrix[2][3] = {
       {3, 1, 3},
       {3, 2, 4}
@@ -144,7 +144,7 @@ static void test_saddle_points_in_non_square_matrix(void)
 static void
     test_saddle_points_in_single_column_matrix_are_those_with_the_minimum_value
     (void) {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint8_t matrix[4][1] = {
       {2},
       {1},
@@ -163,7 +163,7 @@ static void
 static void
 test_saddle_points_in_single_row_matrix_are_those_with_the_maximum_value(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    uint8_t matrix[1][4] = {
       {2, 5, 3, 5}
    };
