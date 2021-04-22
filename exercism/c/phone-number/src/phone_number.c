@@ -68,7 +68,6 @@ char *phone_number_clean(const char *input) {
                 // printf("counts %d, j %d, char %c\n", counts, j, input[j]);
                 update_ans[counts++] = ans[j];
                 // printf("ans %c\n", ans[counts]);
-                counts++;
             }
             return update_ans;
         } else {
