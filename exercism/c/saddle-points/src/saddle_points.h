@@ -23,7 +23,7 @@ struct saddle_points_t {
     saddle_point_t *points;
 };
 
-saddle_points_t *saddle_points(int row, int column, uint8_t *matrix);
+saddle_points_t *saddle_points(int row, int column, uint8_t matrix[row][column]);
 void free_saddle_points(saddle_points_t *actual);
 int get_max_value(int value, int base);
 int get_min_value(int value, int base);

@@ -1,6 +1,6 @@
 #include "saddle_points.h"
 
-saddle_points_t *saddle_points(int row, int column, uint8_t *matrix) {
+saddle_points_t *saddle_points(int row, int column, uint8_t matrix[row][column]) {
     int *row_max = malloc(sizeof(int) * row);
     for (int i = 0; i < row; i++) {
         row_max[i] = 0;
@@ -9,12 +9,12 @@ saddle_points_t *saddle_points(int row, int column, uint8_t *matrix) {
     for (int i = 0; i < column; i++) {
         column_min[i] = 1000000;
     }
-    for (int index = 0; index < row * column; index++) {
-        int value = matrix[index];
-        int row_index = index / column;
-        int column_index = index % column;
-        row_max[row_index] = get_max_value(row_max[row_index], value);
-        column_min[column_index] = get_min_value(column_min[column_index], value);
+    for (int row_index = 0; row_index < row; row_index++) {
+        for (int column_index = 0; column_index < column; column_index++) {
+            int value = matrix[row_index][column_index];
+            row_max[row_index] = get_max_value(row_max[row_index], value);
+            column_min[column_index] = get_min_value(column_min[column_index], value);
+        }
     }
     saddle_points_t *actual;
     actual = malloc(sizeof(saddle_points_t));
