@@ -19,19 +19,19 @@ void tearDown(void)
 
 static void test_list_create(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    TEST_ASSERT_NOT_NULL(list);
 }
 
 static void test_list_is_empty_returns_true_when_empty(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    TEST_ASSERT_TRUE(list_is_empty(list));
 }
 
 static void test_list_is_empty_returns_false_when_not_empty(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    // pre-populate list
    ll_data_t data = 12;
    list_push(list, data);
@@ -40,7 +40,7 @@ static void test_list_is_empty_returns_false_when_not_empty(void)
 
 static void test_list_push_with_multiple_items(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    for (ll_data_t data = 14; data < 19; ++data) {
       TEST_ASSERT_TRUE(list_push(list, data));
    }
@@ -48,7 +48,7 @@ static void test_list_push_with_multiple_items(void)
 
 static void test_list_pop_returns_data_in_correct_order(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    // pre-populate list
    for (ll_data_t data = 11; data <= 15; ++data) {
       list_push(list, data);
@@ -62,7 +62,7 @@ static void test_list_pop_returns_data_in_correct_order(void)
 
 static void test_list_unshift_with_multiple_items(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    for (ll_data_t data = 14; data < 19; ++data) {
       TEST_ASSERT_TRUE(list_unshift(list, data));
    }
@@ -70,7 +70,7 @@ static void test_list_unshift_with_multiple_items(void)
 
 static void test_list_shift_returns_data_in_correct_order(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    // pre-populate list
    for (ll_data_t data = 12; data <= 17; ++data) {
       list_unshift(list, data);
@@ -84,7 +84,7 @@ static void test_list_shift_returns_data_in_correct_order(void)
 
 static void test_pushed_data_can_be_shifted_in_original_order(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    for (ll_data_t data = 16; data < 21; ++data) {
       list_push(list, data);
    }
@@ -96,12 +96,13 @@ static void test_pushed_data_can_be_shifted_in_original_order(void)
 
 static void test_unshifted_data_can_be_popped_in_original_order(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    for (ll_data_t data = 16; data < 21; ++data) {
       list_unshift(list, data);
    }
    for (ll_data_t data = 16; data < 21; ++data) {
-      TEST_ASSERT_EQUAL(data, list_pop(list));
+      int value = list_pop(list);
+      TEST_ASSERT_EQUAL(data, value);
    }
    TEST_ASSERT_TRUE(list_is_empty(list));
 }
