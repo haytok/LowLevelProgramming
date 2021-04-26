@@ -16,6 +16,7 @@
 - [システムプログラム (2020年) (筑波大学／情報科学類開設の講義)](http://www.coins.tsukuba.ac.jp/~syspro/2020/)
 - [コンテナインターンシップ](https://github.com/rrreeeyyy/container-internship)
 - [TCP/IPプロトコルスタック自作開発](https://drive.google.com/drive/folders/1k2vymbC3vUk5CTJbay4LLEdZ9HemIpZe)
+- [東大講義](https://www.eidos.ic.i.u-tokyo.ac.jp/~tau/lecture/)
 
 ### コーディング
 - [AtCoder](https://atcoder.jp/users/dilmnqvovpnmlib)
