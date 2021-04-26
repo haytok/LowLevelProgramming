@@ -21,7 +21,7 @@ static void test_zero(void)
 
 static void test_one(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    char *ans = NULL;
    int res = say(1, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
@@ -31,7 +31,7 @@ static void test_one(void)
 
 static void test_fourteen(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    char *ans = NULL;
    int res = say(14, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
@@ -144,7 +144,7 @@ static void test_a_big_number(void)
 
 static void test_numbers_below_zero_are_out_of_range(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    char *ans = NULL;
    int res = say(-1, &ans);
    TEST_ASSERT_EQUAL_INT(-1, res);
@@ -153,7 +153,7 @@ static void test_numbers_below_zero_are_out_of_range(void)
 
 static void test_numbers_above_999_999_999_999_are_out_of_range(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    char *ans = NULL;
    int res = say(1000000000000, &ans);
    TEST_ASSERT_EQUAL_INT(-1, res);
