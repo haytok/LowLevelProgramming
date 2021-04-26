@@ -21,7 +21,7 @@ static void test_empty_text_res_in_an_empty_ciphertext(void)
 
 static void test_lowercase(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   // TEST_IGNORE();               // delete this line to run test
    const char *input = "A";
    const char *expected = "a";
    char *res = ciphertext(input);
@@ -31,7 +31,7 @@ static void test_lowercase(void)
 
 static void test_remove_spaces(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *input = "  b ";
    const char *expected = "b";
    char *res = ciphertext(input);
@@ -41,7 +41,7 @@ static void test_remove_spaces(void)
 
 static void test_remove_punctuation(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *input = "@1,%!";
    const char *expected = "1";
    char *res = ciphertext(input);
@@ -51,7 +51,7 @@ static void test_remove_punctuation(void)
 
 static void test_9_char_plaintext_gives_3_chunks_of_3_chars(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *input = "This is fun!";
    const char *expected = "tsf hiu isn";
    char *res = ciphertext(input);
@@ -62,7 +62,7 @@ static void test_9_char_plaintext_gives_3_chunks_of_3_chars(void)
 static void
 test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *input = "Chill out.";
    const char *expected = "clu hlt io ";
    char *res = ciphertext(input);
@@ -73,7 +73,7 @@ test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
 static void
 test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces(void)
 {
-   TEST_IGNORE();
+   // TEST_IGNORE();
    const char *input =
        "If man was meant to stay on the ground, god would have given us roots.";
    const char *expected =
