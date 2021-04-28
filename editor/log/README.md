@@ -90,3 +90,16 @@ DESCRIPTION
 
 ### 参考
 - [コンソールによるプログレス表示](https://www.mm2d.net/main/prog/c/console-04.html)
+
+
+## エスケープコードの検証
+
+### プログラム
+- `test_7.c`
+
+### 検証内容
+- 自作エディタに必要なカーソル移動を検証する。
+
+### 参考
+- [ANSIエスケープコード](https://www.mm2d.net/main/prog/c/console-02.html)
+- [printfデバッグTips](https://www.mm2d.net/main/prog/c/printf-01.html)
