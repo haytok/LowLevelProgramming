@@ -125,3 +125,18 @@ DESCRIPTION
 - [Linuxシステムコールの勉強(その１１)](https://web-develop.hatenadiary.org/entry/20071113/1194971862)
 
 ---
+
+## 雑多に検証
+
+### プログラム
+- `test_9.c`
+- `test_10.c`
+- `test_11.c`
+
+### 参考
+- [C言語（Linux環境）でキーボード入力をリアタイでやりたい！！！](https://ggggg-ggg-g.hateblo.jp/entry/20201221/1608558356)
+- [【C言語】Linuxでのkbhit関数（キーイベントの取得）](https://hotnews8.net/programming/tricky-code/c-code03)
+- [1. システムコールとは？](http://curtaincall.weblike.jp/portfolio-unix/api)
+- [Linuxで同期・カノニカルデータ受信 ](http://0n0.fc2web.com/paso/serial/serial00.html)
+
+---
