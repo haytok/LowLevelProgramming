@@ -10,13 +10,14 @@
 - [自作エミュレータで学ぶx86アーキテクチャ](https://book.mynavi.jp/support/bookmook/x86/#bookinfo)
 - [Apress / low-level-programming](https://github.com/Apress/low-level-programming)
 
-### Web サイト
+### Web 資料
 - [低レイヤを知りたい人のためのCコンパイラ作成入門](https://www.sigbus.info/compilerbook) (Stop 2021/03/21)
 - [川合のプログラミング言語自作のためのテキスト第三版#1 ～ 通称「10日くらいでできる！プログラミング言語自作入門」](http://essen.osask.jp/?a21_txt01)
 - [システムプログラム (2020年) (筑波大学／情報科学類開設の講義)](http://www.coins.tsukuba.ac.jp/~syspro/2020/)
 - [コンテナインターンシップ](https://github.com/rrreeeyyy/container-internship)
 - [TCP/IPプロトコルスタック自作開発](https://drive.google.com/drive/folders/1k2vymbC3vUk5CTJbay4LLEdZ9HemIpZe)
 - [東大講義](https://www.eidos.ic.i.u-tokyo.ac.jp/~tau/lecture/)
+- [ソフトウェア工学入門 (島根大学の講義資料)] (http://www.cis.shimane-u.ac.jp/~hama/se_intro_local/slide1.pptx.pdf)
 
 ### コーディング
 - [AtCoder](https://atcoder.jp/users/dilmnqvovpnmlib)
