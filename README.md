@@ -20,6 +20,9 @@
 - [ソフトウェア工学入門 (島根大学の講義資料)](http://www.cis.shimane-u.ac.jp/~hama/se_intro_local/slide1.pptx.pdf)
   - ふつうの Linux プログラミングに内容が近い。
 
+### 積記事
+- [エンジニアならC言語プログラムの終わりに呼び出されるexit()の中身分かってますよね？](https://www.atmarkit.co.jp/ait/articles/1703/01/news174_2.html)
+
 ### コーディング
 - [AtCoder](https://atcoder.jp/users/dilmnqvovpnmlib)
 - [Exercism](https://exercism.io/my/tracks) (2021/03/28 ~)
