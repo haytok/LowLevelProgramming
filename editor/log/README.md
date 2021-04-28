@@ -19,11 +19,17 @@
 
 - コンソールにはモードがあり、カノニカルモードと非カノニカルモードがある。
 - カノニカルモード
-  - 
+  - 入力が行単位で行われる。
+  - 行区切り文字 (ex. 改行) が入力された時点で有効になる。
+  - また、行区切りが入力されるまでの間は行単位の`編集`が可能である。(バックスペースやカーソルキーで入力した内容を編集できる。)
+  - この入力待ちで行われている処理は、プログラム側で知ることはできない。最終的にエンターを押下された時に、編集後の値がまとめてプログラムに受け渡される。
+  - バッファとしてメモリに蓄えられて処理を遅延させるイメージ。
+  - C 言語の argc, argv や Python の sys, input はカノニカルモードの代表例と言える。
 - 非カノニカルモード
-  - 
+  - ユーザの入力が即座に有効となる。
+  - また、編集機能は無効となる。
 
-### man termios
+### man termios and man stdin and man fgetc
 
 ```bash
 SYNOPSIS
@@ -33,7 +39,37 @@ SYNOPSIS
     int tcgetattr(int fd, struct termios *termios_p);
     int tcsetattr(int fd, int optional_actions,
                     const struct termios *termios_p);
+
+DESCRIPTION
+    c_lflag flag constants:
+    ICANON Enable canonical mode (described below).
+
+---
+SYNOPSIS
+       #include <stdio.h>
+
+       extern FILE *stdin;
+       extern FILE *stdout;
+       extern FILE *stderr;
+
+---
+SYNOPSIS
+       #include <stdio.h>
+
+       int fgetc(FILE *stream);
+
+---
+SYNOPSIS
+       #include <ctype.h>
+
+       int iscntrl(int c);
+
+DESCRIPTION
+       iscntrl()
+              checks for a control character.
 ```
+
+- 補足だが、`STDIN_FILENO` は int 型の値だが、`stdin` は FILE 型の値である。したがって、`fgetc` の引数として適しているのは、`stdin` である。このことを考えるの面倒くさいときは、`getchar` を使って標準入力から 1 Byte ずつ読み込めば良い。
 
 ### 参考
 - [パスワード等の入力時にエコーバックをOFFにする (シェルスクリプト)](https://www.qoosky.io/techs/133c9c8cdd)
