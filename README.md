@@ -18,6 +18,7 @@
 - [TCP/IPプロトコルスタック自作開発](https://drive.google.com/drive/folders/1k2vymbC3vUk5CTJbay4LLEdZ9HemIpZe)
 - [東大講義](https://www.eidos.ic.i.u-tokyo.ac.jp/~tau/lecture/)
 - [ソフトウェア工学入門 (島根大学の講義資料)](http://www.cis.shimane-u.ac.jp/~hama/se_intro_local/slide1.pptx.pdf)
+  - ふつうの Linux プログラミングに内容が近い。
 
 ### コーディング
 - [AtCoder](https://atcoder.jp/users/dilmnqvovpnmlib)
