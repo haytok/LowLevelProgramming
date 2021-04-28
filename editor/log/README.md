@@ -29,6 +29,8 @@
   - ユーザの入力が即座に有効となる。
   - また、編集機能は無効となる。
 
+- この名称は、cooked モードと raw モードと呼ばれることもある。
+
 ### man termios and man stdin and man fgetc
 
 ```bash
@@ -74,7 +76,10 @@ DESCRIPTION
 ### 参考
 - [パスワード等の入力時にエコーバックをOFFにする (シェルスクリプト)](https://www.qoosky.io/techs/133c9c8cdd)
 - [コンソールからのパスワード入力](https://www.mm2d.net/main/prog/c/console-05.html)
+- [Linuxシステムコールの勉強(その１０)](https://web-develop.hatenadiary.org/entry/20071112/1194882731)
+  - `fprintf(stderr, "")` で文字列を表示する方法以外に、`fflush()` でバッファ内のデータを強制的に吐き出してから、`printf` を実行すると良い。
 
+---
 
 ## `termios` を用いたコンソールでプログレス表示をすることの検証
 
@@ -91,6 +96,7 @@ DESCRIPTION
 ### 参考
 - [コンソールによるプログレス表示](https://www.mm2d.net/main/prog/c/console-04.html)
 
+---
 
 ## エスケープコードの検証
 
@@ -103,3 +109,19 @@ DESCRIPTION
 ### 参考
 - [ANSIエスケープコード](https://www.mm2d.net/main/prog/c/console-02.html)
 - [printfデバッグTips](https://www.mm2d.net/main/prog/c/printf-01.html)
+- [パスワードの入力](https://t2y.hatenablog.jp/entry/20090427/1240836509)
+  - 標準入力から入力された文字列を表示しない関数が Python に `getpass` というのがある。
+  - その内部実装を簡単に解説している記事である。
+
+## termios の各パラメータの設定に関しての検証
+
+### プログラム
+- `test_8.c`
+
+### 検証内容
+- このプログラムでは、`tm.c_cc[VMIN]` に格納する値は、バッファに何バイトのデータが入ったら、read() を呼び出すかということを決めるための値である。
+
+### 参考
+- [Linuxシステムコールの勉強(その１１)](https://web-develop.hatenadiary.org/entry/20071113/1194971862)
+
+---

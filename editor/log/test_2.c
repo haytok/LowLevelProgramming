@@ -9,8 +9,8 @@ int main(int argc, char **argv) {
 
     tcgetattr(STDIN_FILENO, &term);
     save = term;
-    term.c_lflag &= ~ECHO;
-    term.c_lflag &= ~ICANON;
+    term.c_lflag &= ~ECHO; // エコーバッグを無効にする
+    term.c_lflag &= ~ICANON; // 非カノニカルモードにする
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
 
     int i = 0;
