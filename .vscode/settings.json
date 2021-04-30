@@ -15,7 +15,9 @@
         "*.tcc": "c",
         "fstream": "c",
         "iostream": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "complex": "c",
+        "functional": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "editor.fontSize": 18
