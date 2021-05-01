@@ -62,6 +62,7 @@ bool answer(const char *question, int *result) {
                 || strcmp(keyword, "multiplied") == 0
                 || strcmp(keyword, "divided") == 0
             ) {
+                // plus plus の文字列が続くケースの時は、Invalid で弾く。
                 if (strlen(cal) != 0) {
                     return false;
                 }
