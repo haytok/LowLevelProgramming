@@ -25,7 +25,7 @@
 
 ### コーディング
 - [AtCoder](https://atcoder.jp/users/dilmnqvovpnmlib)
-- [Exercism](https://exercism.io/my/tracks) (2021/03/28 ~)
+- [Exercism](https://exercism.io/my/tracks) (from 2021/03/28 to 2021/05/02, exclude [Two Bucket](https://exercism.io/my/solutions/38510639f4474826a9f0721254bd465a) and [React](https://exercism.io/my/solutions/abdbb04074804df9844b99cb7332a23a))
 - [LeetCode](https://leetcode.com/)
 - [Project Euler](https://projecteuler.net/)
 
