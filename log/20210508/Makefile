@@ -15,6 +15,12 @@ test_5: test_5.c
 	gcc -m32 -o test_5.out test_5.o syscall_test_5.o
 	./test_5.out
 
+test_8: test_8.c
+	nasm -f elf32 -o syscall_test_8.o test_8.asm
+	gcc -m32 -o test_8.o -c test_8.c
+	gcc -m32 -o test_8.out test_8.o syscall_test_8.o
+	./test_8.out
+
 .PHONY: clean
 clean:
 	rm -rf *.out
