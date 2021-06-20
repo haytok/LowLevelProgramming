@@ -262,3 +262,32 @@ make test_5
 
 - [Cとアセンブラを組み合わせてコンパイルする](https://kobapan.hatenadiary.org/entry/20090524/1258476318)
 - [6-8 演習: 画面に "Hi" と表示しよう](https://github.com/dilmnqvovpnmlib/BinaryAnalysisBook/tree/main/s6)
+
+### syscall を使ってシステムコールを呼び出してみた
+
+- syscall 関数を使って write システムコールを実現する。
+
+#### 検証プログラム 1
+
+- `test_6.c`
+
+- test_6.c
+
+```c
+#define _GNU_SOURCE
+#include <unistd.h>
+#include <sys/syscall.h>
+#include <bits/syscall.h>
+
+int main(void) {
+    char *buf = "Hello\n";
+    syscall(SYS_write, STDOUT_FILENO, buf, sizeof(buf));
+}
+```
+
+- ビルドと実行
+
+```bash
+gcc -o test_6 test_6.c && ./test_6
+Hello
+```
